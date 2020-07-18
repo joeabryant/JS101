@@ -8,16 +8,58 @@
 
 //Bring in readline-sync
 const readline = require('readline-sync');
+const MESSAGES = require('./calculator_messages.json');
+prompt(MESSAGES['language']);
+let language = readline.question();
+prompt(MESSAGES[language]['welcome']);
+let name = readline.question();
 
-console.log('Welcome to the Calculator App!');
-console.log('Pick a number!');
-let num1 = Number(readline.question());
-// console.log(num1);
-console.log('Pick another number!');
-let num2 = Number(readline.question());
-console.log('Would you like to add, subtract, multiply, or divide?');
-let operation = readline.question();
-console.log(`${num1} ${num2} ${operation}`);
+
+while (true) {
+  prompt(MESSAGES[language]['number1']);
+  let num1 = Number(readline.question());
+
+  while (invalidNumber(num1)) {
+    prompt(MESSAGES[language]['invalidNumber']);
+    num1 = Number(readline.question());
+  }
+
+  prompt(MESSAGES[language]['number2']);
+  let num2 = Number(readline.question());
+
+  while (invalidNumber(num2)) {
+    prompt(MESSAGES[language]['invalidNumber']);
+    num2 = Number(readline.question());
+  }
+
+  prompt(MESSAGES[language]['operation']);
+  let operation = readline.question();
+
+  while (!['add', 'subtract', 'multiply', 'divide'].includes(operation)) {
+    prompt(MESSAGES[language]['invalidOperation']);
+    operation = readline.question();
+  }
+
+  console.log(calculator(num1, num2, operation));
+
+  prompt(MESSAGES[language]['goAgain']);
+  let response = readline.question();
+
+  if (response !== 'y') {
+    break;
+  }
+}
+
+
+//Functions
+
+function invalidNumber(number) {
+  return Number.isNaN(Number(number));
+};
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+};
 
 function calculator(num1, num2, operation) {
   switch (operation) {
@@ -37,5 +79,3 @@ function calculator(num1, num2, operation) {
 
   }
 }
-
-console.log(calculator(num1, num2, operation));

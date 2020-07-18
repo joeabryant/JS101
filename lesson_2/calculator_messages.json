@@ -1,0 +1,23 @@
+{
+  "language": "English or Spanish? (en/es)",
+  "en": {
+    "welcome": "Welcome to the Calculator program! Enter your name:",
+    "validName": "Make sure to enter a valid name.",
+    "invalidNumber": "Invalid number...try again.",
+    "number1": "Pick a number!",
+    "number2": "Pick another number!",
+    "operation": "Would you like to add, subtract, multiply, or divide?",
+    "invalidOperation": "Must choose add, subtract, multiply, or divide. Please try again:",
+    "goAgain": "Would you like to go again? (y/n)"
+  },
+  "es": {
+    "welcome": "¡Bienvenido al programa Calculadora! Introduzca su nombre:",
+    "validName": "Asegúrese de ingresar un nombre válido.",
+    "invalidNumber": "Número no válido ... intente nuevamente.",
+    "number1": "¡Elige un número!",
+    "number2": "¡Elige otro número!",
+    "operation": "¿Te gustaría sumar, restar, multiplicar o dividir?",
+    "invalidOperation": "Debe elegir sumar, restar, multiplicar o dividir. Inténtalo de nuevo:",
+    "goAgain": "¿Te gustaría ir de nuevo? (y/n)"
+  }
+}
